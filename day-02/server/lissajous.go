@@ -22,7 +22,6 @@ const (
 func main() {
 	rand.Seed(time.Now().UTC().UnixNano())
 	
-
 	handler := func(w http.ResponseWriter, r *http.Request)  {
 		lissajous(w)
 	}
