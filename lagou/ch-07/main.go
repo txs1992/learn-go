@@ -32,6 +32,7 @@ func main() {
 	// fmt.Println(errors.Unwrap(w))
 	// fmt.Println(errors.Is(w, e))
 	// fmt.Println(readFile("../ch-06/walk-run.go"))
+	// moreDefer()
 }
 
 func (cew *customErrorWrapper) Error() string {
@@ -40,6 +41,13 @@ func (cew *customErrorWrapper) Error() string {
 
 func (ce *customError) Error() string {
 	return ce.errorMessage
+}
+
+func moreDefer() {
+	defer fmt.Println("First defer")
+	defer fmt.Println("Second defer")
+	defer fmt.Println("Last defer")
+	fmt.Println("函数自身代码")
 }
 
 func readFile(filename string) ([]byte, error) {
