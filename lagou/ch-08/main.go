@@ -8,9 +8,9 @@ import (
 
 func main() {
 	// go learnGoroutine()
-	// learnChannel()
+	learnChannel()
 	// oneWayChannel()
-	selectChannel()
+	// selectChannel()
 }
 
 func selectChannel() {
@@ -64,11 +64,20 @@ func learnChannel() {
 
 	fmt.Println("我是 ch 主协程")
 
+	// 循环获取通道中的值
+	for {
+		v := <-ch
+		fmt.Println("接收到的 channel 中的值为：", v)
+
+		if len(ch) == 0 {
+			break
+		}
+	}
 	// 获取有缓冲通道的数据并打印
-	v := <-ch
-	v2 := <-ch
-	fmt.Println("接收到的 channel 中的值为：", v, v2)
-	fmt.Println("ch 容量为：", cap(ch), "，元素个数为：", len(ch))
+	// v := <-ch
+	// v2 := <-ch
+	// fmt.Println("接收到的 channel 中的值为：", v, v2)
+	// fmt.Println("ch 容量为：", cap(ch), "，元素个数为：", len(ch))
 
 	// 关闭通道
 	close(ch)
